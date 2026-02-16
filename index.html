@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kurd Agency | Premium</title>
+    <title>Kurd Agency | Official</title>
 
     <script>
     !function (w, d, t) {
@@ -20,22 +20,30 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         
+        html, body { 
+            height: 100%; 
+            overflow: hidden; 
+        }
+
         body { 
             background-color: #000;
             background-image: 
-                radial-gradient(circle at 50% -20%, #112233, transparent),
-                radial-gradient(circle at 100% 100%, #050a0f, transparent);
+                radial-gradient(circle at 50% 20%, #112233, transparent),
+                radial-gradient(circle at 0% 100%, #050a0f, transparent);
             font-family: 'Segoe UI', system-ui, sans-serif;
             display: flex; justify-content: center; align-items: center; 
-            min-height: 100vh; color: #fff; padding: 20px;
+            color: #fff; padding: 15px;
         }
 
         .main-wrapper {
             width: 100%; max-width: 400px;
+            height: 92vh; 
+            display: flex; flex-direction: column;
+            justify-content: space-between;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 50px;
-            padding: 50px 20px;
+            padding: 40px 20px;
             text-align: center;
             backdrop-filter: blur(25px);
             box-shadow: 0 30px 60px rgba(0,0,0,0.6);
@@ -46,70 +54,72 @@
             font-weight: 900;
             background: linear-gradient(to bottom, #fff, #00d2ff);
             -webkit-background-clip: text;
-            -webkit-fill-color: transparent;
             -webkit-text-fill-color: transparent;
             filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
         }
 
         .sub-text {
-            color: #00d2ff;
-            font-size: 0.8rem;
-            font-weight: 700;
-            letter-spacing: 5px;
-            margin-bottom: 40px;
+            color: #00d2ff; font-size: 0.8rem; font-weight: 700; letter-spacing: 5px; margin-bottom: 20px;
         }
 
-        .instruction { color: #aaa; margin-bottom: 25px; font-size: 1rem; }
+        .instruction { color: #aaa; margin-bottom: 15px; font-size: 1rem; }
 
-        /* لۆگۆ جوڵاوەکان */
+        /* Animations */
         @keyframes shake { 0%, 100% {transform: rotate(0);} 25% {transform: rotate(10deg);} 75% {transform: rotate(-10deg);} }
-        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.2);} 100% {transform: scale(1);} }
-        @keyframes spin { 0% {transform: rotate(0);} 100% {transform: rotate(360deg);} }
+        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.15);} 100% {transform: scale(1);} }
         @keyframes float { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-5px);} }
 
-        .links-list { display: flex; flex-direction: column; gap: 15px; }
+        .links-list { display: flex; flex-direction: column; gap: 12px; }
 
         .link-item {
             display: flex; align-items: center;
-            padding: 18px 25px;
+            padding: 16px 25px;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 25px;
+            border-radius: 22px;
             text-decoration: none;
-            color: #fff;
-            font-weight: 700;
-            transition: 0.3s;
+            color: #fff; font-weight: 700; transition: 0.3s;
         }
 
-        .link-item:hover { background: rgba(255, 255, 255, 0.08); border-color: #00d2ff; }
-        
-        .link-item i { font-size: 1.8rem; margin-left: 20px; width: 35px; text-align: center; }
-        .link-item span { flex-grow: 1; text-align: right; font-size: 1.1rem; }
+        .link-item i { font-size: 1.7rem; margin-left: 18px; width: 35px; text-align: center; }
+        .link-item span { flex-grow: 1; text-align: right; font-size: 1.05rem; }
 
-        /* لێدانی جوڵە بۆ ئایکۆنەکان */
         .fa-whatsapp { animation: shake 2s infinite ease-in-out; color: #25D366; }
         .fa-viber { animation: float 3s infinite ease-in-out; color: #7360f2; }
         .fa-snapchat-ghost { animation: pulse 1.5s infinite ease-in-out; color: #FFFC00; }
-        .fa-instagram { animation: spin 4s infinite linear; color: #E1306C; }
+        .fa-instagram { animation: pulse 2s infinite ease-in-out; color: #E1306C; }
         .fa-phone-alt { animation: shake 1s infinite linear; color: #00d2ff; }
 
-        .footer {
-            margin-top: 50px;
-            padding-top: 25px;
-            border-top: 1px solid rgba(255, 255, 255, 0.05);
+        /* باگراوەندی فوتەرەکە */
+        .footer-box {
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1));
+            border-radius: 30px;
+            padding: 20px 10px;
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            margin-top: 10px;
+            box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.05);
         }
 
-        .footer-brand { font-size: 1.5rem; font-weight: 800; color: #fff; margin-bottom: 5px; }
-        .footer-slogan { font-size: 0.9rem; color: #666; line-height: 1.5; }
+        .footer-link { text-decoration: none; color: inherit; display: block; }
+        .footer-link:active { transform: scale(0.96); }
+
+        .footer-brand { 
+            font-size: 1.6rem; font-weight: 900; color: #fff; 
+            text-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+            letter-spacing: 1px;
+        }
+        
+        .footer-slogan { font-size: 0.85rem; color: #999; margin-top: 5px; font-weight: 500; }
     </style>
 </head>
 <body>
 
     <div class="main-wrapper">
-        <div class="agency-logo-text">KURD AGENCY</div>
-        <div class="sub-text">EXPERT SPONSOR</div>
-
-        <p class="instruction">ڕێگایەکی پەیوەندی کردن هەڵبژێرە</p>
+        <div class="top-content">
+            <div class="agency-logo-text">KURD AGENCY</div>
+            <div class="sub-text">EXPERT SPONSOR</div>
+            <p class="instruction">پەیوەندی بکە</p>
+        </div>
 
         <div class="links-list">
             <a href="https://wa.me/9647729585559" class="link-item" onclick="ttq.track('Purchase');">
@@ -133,10 +143,12 @@
             </a>
         </div>
 
-        <div class="footer">
-            <p style="font-size: 0.7rem; color: #444; letter-spacing: 2px; margin-bottom: 5px;">POWERED BY</p>
-            <div class="footer-brand">KURD AGENCY</div>
-            <p class="footer-slogan">لەگەڵ کورد ئەجێنسی گەورەکردنی کارەکەت ئاسانە</p>
+        <div class="footer-box">
+            <p style="font-size: 0.65rem; color: #555; letter-spacing: 2px; margin-bottom: 5px; font-weight: bold;">POWERED BY</p>
+            <a href="https://wa.me/9647729585559" class="footer-link" onclick="ttq.track('Purchase');">
+                <div class="footer-brand">KURD AGENCY</div>
+            </a>
+            <p class="footer-slogan">گەورەکردنی کارەکەت ئاسانە</p>
         </div>
     </div>
 
