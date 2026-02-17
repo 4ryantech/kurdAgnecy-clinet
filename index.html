@@ -22,7 +22,8 @@
         
         html, body { 
             height: 100%; 
-            overflow: hidden; 
+            width: 100%;
+            overflow: hidden; /* ڕێگری لە هەر سکرۆڵێک دەکات */
         }
 
         body { 
@@ -32,106 +33,102 @@
                 radial-gradient(circle at 0% 100%, #050a0f, transparent);
             font-family: 'Segoe UI', system-ui, sans-serif;
             display: flex; justify-content: center; align-items: center; 
-            color: #fff; padding: 15px;
+            color: #fff; padding: 10px;
         }
 
         .main-wrapper {
-            width: 100%; max-width: 400px;
-            height: 92vh; 
+            width: 100%; max-width: 380px;
+            height: 95vh; /* بەرزییەکە کەمکراوەتەوە بۆ ئەوەی لە شاشە دەرنەچێت */
             display: flex; flex-direction: column;
-            justify-content: space-between;
+            justify-content: space-around; /* بڵاوکردنەوەی بەشەکان بە یەکسانی */
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50px;
-            padding: 30px 20px; /* کەمێک پادینگی سەرەوە کەمکراوە بۆ شوێنی لۆگۆکە */
+            border-radius: 40px;
+            padding: 15px;
             text-align: center;
             backdrop-filter: blur(25px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
             position: relative;
         }
 
-        /* Kurd Agency بچووک لە سوچ */
+        /* Kurd Agency سەرەوە */
         .corner-brand {
             position: absolute;
-            top: 25px;
-            right: 30px;
-            font-size: 0.7rem;
+            top: 15px;
+            right: 20px;
+            font-size: 0.65rem;
             font-weight: 800;
             color: #4facfe;
-            letter-spacing: 2px;
+            letter-spacing: 1px;
             text-transform: uppercase;
             opacity: 0.8;
         }
 
-        /* هێمای تەلەفۆنی جوڵاو لە جیاتی لۆگۆ */
+        /* لۆگۆ تەلەفۆن - قەبارەی بچووک کراوە */
         .call-center-icon {
-            font-size: 3.5rem;
+            font-size: 2.8rem;
             color: #00d2ff;
-            margin-top: 20px;
-            margin-bottom: 10px;
+            margin-top: 15px;
             display: inline-block;
-            filter: drop-shadow(0 0 15px rgba(0, 210, 255, 0.5));
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.4));
             animation: ring-vibrate 1.5s infinite ease-in-out;
         }
 
         @keyframes ring-vibrate {
             0%, 100% { transform: rotate(0) scale(1); }
-            10%, 30% { transform: rotate(15deg) scale(1.1); }
-            20%, 40% { transform: rotate(-15deg) scale(1.1); }
+            10%, 30% { transform: rotate(12deg) scale(1.05); }
+            20%, 40% { transform: rotate(-12deg) scale(1.05); }
         }
 
         .instruction { 
             color: #fff; 
-            margin-bottom: 20px; 
-            font-size: 1.1rem; 
+            margin-top: 5px;
+            margin-bottom: 10px; 
+            font-size: 0.95rem; 
             font-weight: 600;
         }
 
-        /* Animations */
-        @keyframes shake { 0%, 100% {transform: rotate(0);} 25% {transform: rotate(10deg);} 75% {transform: rotate(-10deg);} }
-        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.15);} 100% {transform: scale(1);} }
-        @keyframes float { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-5px);} }
-
-        .links-list { display: flex; flex-direction: column; gap: 12px; }
+        /* لیستەکە - بۆشایی نێوان دوگمەکان کەمکراوەتەوە */
+        .links-list { display: flex; flex-direction: column; gap: 8px; }
 
         .link-item {
             display: flex; align-items: center;
-            padding: 16px 25px;
+            padding: 12px 20px;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 22px;
+            border-radius: 18px;
             text-decoration: none;
-            color: #fff; font-weight: 700; transition: 0.3s;
+            color: #fff; font-weight: 700; transition: 0.2s;
         }
 
-        .link-item i { font-size: 1.7rem; margin-left: 18px; width: 35px; text-align: center; }
-        .link-item span { flex-grow: 1; text-align: right; font-size: 1.05rem; }
+        .link-item i { font-size: 1.4rem; margin-left: 12px; width: 30px; text-align: center; }
+        .link-item span { flex-grow: 1; text-align: right; font-size: 0.95rem; }
 
+        /* جوڵەی لۆگۆکان */
+        @keyframes shake { 0%, 100% {transform: rotate(0);} 25% {transform: rotate(8deg);} 75% {transform: rotate(-8deg);} }
         .fa-whatsapp { animation: shake 2s infinite ease-in-out; color: #25D366; }
-        .fa-viber { animation: float 3s infinite ease-in-out; color: #7360f2; }
-        .fa-snapchat-ghost { animation: pulse 1.5s infinite ease-in-out; color: #FFFC00; }
-        .fa-instagram { animation: pulse 2s infinite ease-in-out; color: #E1306C; }
+        .fa-viber { color: #7360f2; }
+        .fa-snapchat-ghost { color: #FFFC00; }
+        .fa-instagram { color: #E1306C; }
         .fa-phone-alt { animation: shake 1s infinite linear; color: #00d2ff; }
 
+        /* فوتەر - بۆشاییەکان زۆر کەمکراونەتەوە */
         .footer-box {
-            background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1));
-            border-radius: 30px;
-            padding: 20px 10px;
+            background: linear-gradient(135deg, rgba(0, 210, 255, 0.08), rgba(58, 123, 213, 0.08));
+            border-radius: 25px;
+            padding: 10px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 10px;
-            box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.05);
+            margin-top: 5px;
         }
 
         .footer-link { text-decoration: none; color: inherit; display: block; }
-        .footer-link:active { transform: scale(0.96); }
 
         .footer-brand { 
-            font-size: 1.6rem; font-weight: 900; color: #fff; 
-            text-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
+            font-size: 1.3rem; font-weight: 900; color: #fff; 
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.5);
             letter-spacing: 1px;
         }
         
-        .footer-slogan { font-size: 0.85rem; color: #999; margin-top: 5px; font-weight: 500; }
+        .footer-slogan { font-size: 0.75rem; color: #888; margin-top: 2px; }
     </style>
 </head>
 <body>
@@ -147,33 +144,28 @@
         </div>
 
         <div class="links-list">
-            <a href="https://wa.me/9647729585559" class="link-item" onclick="ttq.track('Purchase');">
+            <a href="https://wa.me/9647729585559" class="link-item">
                 <i class="fab fa-whatsapp"></i> <span>واتسئەپ</span>
             </a>
-
-            <a href="viber://contact?number=9647729585559" class="link-item" onclick="ttq.track('Purchase');">
+            <a href="viber://contact?number=9647729585559" class="link-item">
                 <i class="fab fa-viber"></i> <span>ڤایبەر</span>
             </a>
-
-            <a href="https://snapchat.com/t/GduU5kjf" class="link-item" onclick="ttq.track('Purchase');">
+            <a href="https://snapchat.com/t/GduU5kjf" class="link-item">
                 <i class="fab fa-snapchat-ghost"></i> <span>سناپچات</span>
             </a>
-
-            <a href="https://instagram.com/kurdagency" class="link-item" onclick="ttq.track('Purchase');">
+            <a href="https://instagram.com/kurdagency" class="link-item">
                 <i class="fab fa-instagram"></i> <span>ئینستاگرام</span>
             </a>
-
-            <a href="tel:07729585559" class="link-item" onclick="ttq.track('Purchase');">
+            <a href="tel:07729585559" class="link-item">
                 <i class="fas fa-phone-alt"></i> <span>پەیوەندی تەلەفۆنی</span>
             </a>
         </div>
 
         <div class="footer-box">
-            <p style="font-size: 0.65rem; color: #555; letter-spacing: 2px; margin-bottom: 5px; font-weight: bold;">POWERED BY</p>
-            <a href="https://wa.me/9647729585559" class="footer-link" onclick="ttq.track('Purchase');">
+            <a href="https://wa.me/9647729585559" class="footer-link">
                 <div class="footer-brand">KURD AGENCY</div>
             </a>
-            <p class="footer-slogan">گەورەکردنی کارەکەت ئاسانە</p>
+            <p class="footer-slogan">گەورەکردنی کارەکەت لەگەڵ کورد ئەجێنسی ئاسانە</p>
         </div>
     </div>
 
