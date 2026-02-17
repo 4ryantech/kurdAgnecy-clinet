@@ -10,9 +10,7 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         
-        html, body { 
-            height: 100%; width: 100%; overflow: hidden; background: #000;
-        }
+        html, body { height: 100%; width: 100%; overflow: hidden; background: #000; }
 
         body { 
             background-image: radial-gradient(circle at 50% 10%, #112233, transparent), 
@@ -24,22 +22,22 @@
 
         .main-wrapper {
             width: 92%; max-width: 360px;
-            height: 85vh; /* بەرزییەکە کەمکراوەتەوە بۆ ئەوەی هەمووی لە ناوەڕاست بێت */
+            height: 88vh; 
             display: flex; flex-direction: column;
             justify-content: space-between;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.08);
             border-radius: 40px;
-            padding: 25px 15px;
+            padding: 20px 15px;
             text-align: center;
             backdrop-filter: blur(20px);
             position: relative;
         }
 
-        /* Kurd Agency سەرەوە - هێنراوەتە خوارەوە و ناوەوە */
+        /* Kurd Agency لە سوچ */
         .top-brand {
             position: absolute;
-            top: 25px;
+            top: 20px;
             right: 25px;
             font-size: 0.75rem;
             font-weight: 800;
@@ -48,63 +46,75 @@
             text-transform: uppercase;
         }
 
-        /* هێمای تەلەفۆنی جوڵاو - هێنراوەتە خوارەوە */
+        /* لۆگۆ تەلەفۆنە گەورەکە */
         .call-icon {
-            font-size: 2.8rem;
+            font-size: 4rem; /* زۆر گەورە کرا */
             color: #00d2ff;
-            margin-top: 30px; /* بۆشایی لە سەرەوە */
+            margin-top: 40px; /* هێنرایە خوارەوە */
             display: inline-block;
-            animation: ring 1.5s infinite ease-in-out;
+            filter: drop-shadow(0 0 20px rgba(0, 210, 255, 0.6));
+            animation: ring-big 1.5s infinite ease-in-out;
         }
 
-        @keyframes ring {
-            0%, 100% { transform: rotate(0); }
-            15% { transform: rotate(15deg); }
-            30% { transform: rotate(-15deg); }
+        @keyframes ring-big {
+            0%, 100% { transform: scale(1) rotate(0); }
+            10%, 30% { transform: scale(1.1) rotate(10deg); }
+            20%, 40% { transform: scale(1.1) rotate(-10deg); }
         }
 
         .instruction {
-            font-size: 1rem;
-            font-weight: 600;
+            font-size: 1.25rem; /* نوسینەکە گەورە کرا */
+            font-weight: 800;
             color: #fff;
-            margin-top: 8px;
-            margin-bottom: 15px;
+            margin-top: 10px;
+            text-shadow: 0 0 10px rgba(255,255,255,0.3);
         }
 
-        /* دوگمەکان */
-        .links-list { 
-            display: flex; 
-            flex-direction: column; 
-            gap: 10px;
-            margin: 10px 0;
+        /* هێمای ئیشارەت بۆ خوارەوە */
+        .arrow-down {
+            font-size: 1.5rem;
+            color: #4facfe;
+            margin-bottom: 5px;
+            animation: bounce 1s infinite;
         }
+
+        @keyframes bounce {
+            0%, 100% { transform: translateY(0); opacity: 1; }
+            50% { transform: translateY(10px); opacity: 0.5; }
+        }
+
+        /* لیستەکان و جوڵەی لۆگۆکانی ناو دوگمەکان */
+        .links-list { display: flex; flex-direction: column; gap: 8px; }
 
         .link-item {
             display: flex; align-items: center;
-            padding: 14px 18px;
+            padding: 13px 18px;
             background: rgba(255, 255, 255, 0.05);
             border: 1px solid rgba(255, 255, 255, 0.06);
             border-radius: 20px;
             text-decoration: none;
-            color: #fff; font-weight: 700; transition: 0.2s;
+            color: #fff; font-weight: 700;
         }
 
-        .link-item i { font-size: 1.5rem; margin-left: 12px; width: 25px; text-align: center; }
+        .link-item i { font-size: 1.6rem; margin-left: 12px; width: 30px; text-align: center; }
         .link-item span { flex-grow: 1; text-align: right; font-size: 1rem; }
 
-        .fa-whatsapp { color: #25D366; }
-        .fa-viber { color: #7360f2; }
-        .fa-snapchat-ghost { color: #FFFC00; }
-        .fa-instagram { color: #E1306C; }
-        .fa-phone-alt { color: #00d2ff; }
+        /* Animation بۆ هەموو لۆگۆکان */
+        @keyframes mini-shake { 0%, 100% {transform: rotate(0);} 25% {transform: rotate(10deg);} 75% {transform: rotate(-10deg);} }
+        @keyframes mini-pulse { 0%, 100% {transform: scale(1);} 50% {transform: scale(1.2);} }
 
-        /* فوتەر - بەرزکراوەتەوە بۆ ناوەوەی کارتەکە */
+        .fa-whatsapp { animation: mini-shake 2s infinite; color: #25D366; }
+        .fa-viber { animation: mini-pulse 2s infinite; color: #7360f2; }
+        .fa-snapchat-ghost { animation: mini-shake 1.5s infinite; color: #FFFC00; }
+        .fa-instagram { animation: mini-pulse 2.5s infinite; color: #E1306C; }
+        .fa-phone-alt { animation: mini-shake 1s infinite; color: #00d2ff; }
+
+        /* فوتەر */
         .footer-box {
             background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1));
             border-radius: 25px;
-            padding: 15px;
+            padding: 12px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 10px;
         }
 
         .footer-brand { 
@@ -112,7 +122,7 @@
             text-shadow: 0 0 12px rgba(0, 210, 255, 0.6);
         }
         
-        .footer-slogan { font-size: 0.8rem; color: #aaa; margin-top: 4px; }
+        .footer-slogan { font-size: 0.8rem; color: #aaa; margin-top: 3px; }
     </style>
 </head>
 <body>
@@ -123,6 +133,7 @@
         <div class="header-content">
             <div class="call-icon"><i class="fas fa-phone-volume"></i></div>
             <p class="instruction">ڕێگایەکی پەیوەندی کردن هەڵبژێرە</p>
+            <div class="arrow-down"><i class="fas fa-chevron-down"></i></div>
         </div>
 
         <div class="links-list">
