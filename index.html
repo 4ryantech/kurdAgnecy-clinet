@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Kurd Agency | Premium Services</title>
+    <title>Kurd Agency | Official</title>
 
     <script>
     !function (w, d, t) {
@@ -20,152 +20,146 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         
+        /* پڕاوپڕکردنی شاشە و ڕێگری لە سکرۆڵ */
+        html, body { 
+            height: 100%; 
+            overflow: hidden; 
+        }
+
         body { 
             background-color: #000;
             background-image: 
-                radial-gradient(circle at 50% -20%, #1a3a5f, transparent),
-                radial-gradient(circle at 0% 100%, #0a1520, transparent);
-            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+                radial-gradient(circle at 50% 20%, #112233, transparent),
+                radial-gradient(circle at 0% 100%, #050a0f, transparent);
+            font-family: 'Segoe UI', system-ui, sans-serif;
             display: flex; justify-content: center; align-items: center; 
-            min-height: 100vh; color: #fff; padding: 20px;
-            overflow: hidden;
+            color: #fff; padding: 15px;
         }
 
         .main-wrapper {
-            width: 100%; max-width: 420px;
-            height: 92vh; /* بۆ ئەوەی پڕ بێت و سکرۆڵ نەکات */
-            position: relative;
-            background: rgba(255, 255, 255, 0.03);
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            border-radius: 50px;
-            padding: 40px 25px;
-            text-align: center;
-            backdrop-filter: blur(30px);
-            box-shadow: 0 40px 100px rgba(0,0,0,0.8);
-            display: flex;
-            flex-direction: column;
+            width: 100%; max-width: 400px;
+            height: 90vh; /* بەرزییەکەی ڕێکدەخات تا پێویست بە سکرۆڵ نەکات */
+            display: flex; flex-direction: column;
             justify-content: space-between;
+            background: rgba(255, 255, 255, 0.02);
+            border: 1px solid rgba(255, 255, 255, 0.08);
+            border-radius: 50px;
+            padding: 40px 20px;
+            text-align: center;
+            backdrop-filter: blur(25px);
+            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
         }
 
-        /* Kurd Agency لە سوچ وەک داوات کردبوو */
-        .top-brand-small {
-            position: absolute;
-            top: 25px;
-            right: 30px;
-            font-size: 0.75rem;
-            font-weight: 800;
-            color: #4facfe;
-            letter-spacing: 1px;
-            text-transform: uppercase;
+        .agency-logo-text {
+            font-size: 2.8rem;
+            font-weight: 900;
+            background: linear-gradient(to bottom, #fff, #00d2ff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
         }
 
-        /* لۆگۆ تەلەفۆنە جوڵاوە گەورەکە */
-        .call-icon-main {
-            font-size: 3.5rem;
-            color: #4facfe;
-            margin-top: 20px;
-            display: inline-block;
-            filter: drop-shadow(0 0 15px rgba(79, 172, 254, 0.4));
-            animation: ring 1.5s infinite ease-in-out;
+        .sub-text {
+            color: #00d2ff;
+            font-size: 0.8rem;
+            font-weight: 700;
+            letter-spacing: 5px;
+            margin-bottom: 20px;
         }
 
-        @keyframes ring {
-            0%, 100% { transform: rotate(0) scale(1); }
-            15% { transform: rotate(10deg) scale(1.1); }
-            30% { transform: rotate(-10deg) scale(1.1); }
-        }
+        .instruction { color: #aaa; margin-bottom: 15px; font-size: 1rem; }
 
-        .instruction {
-            font-size: 1.1rem;
-            font-weight: 500;
-            color: #ccc;
-            margin-top: 10px;
-        }
+        /* لۆگۆ جوڵاوەکان (Animation) */
+        @keyframes shake { 0%, 100% {transform: rotate(0);} 25% {transform: rotate(10deg);} 75% {transform: rotate(-10deg);} }
+        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.2);} 100% {transform: scale(1);} }
+        @keyframes spin { 0% {transform: rotate(0);} 100% {transform: rotate(360deg);} }
+        @keyframes float { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-5px);} }
 
-        /* تیرە جوڵاوەکە */
-        .scroll-icon {
-            font-size: 1.5rem;
-            color: #4facfe;
-            margin-bottom: 15px;
-            animation: moveDown 2s infinite ease-in-out;
-        }
-
-        @keyframes moveDown {
-            0%, 100% { transform: translateY(0); opacity: 0.5; }
-            50% { transform: translateY(10px); opacity: 1; }
-        }
-
-        /* دوگمەکان ڕێک وەک وێنەکە */
-        .links-list { display: grid; gap: 12px; }
+        .links-list { display: flex; flex-direction: column; gap: 12px; }
 
         .link-item {
             display: flex; align-items: center;
-            padding: 18px 25px;
-            background: rgba(255, 255, 255, 0.05);
-            border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 25px;
+            padding: 16px 25px;
+            background: rgba(255, 255, 255, 0.04);
+            border: 1px solid rgba(255, 255, 255, 0.05);
+            border-radius: 22px;
             text-decoration: none;
             color: #fff;
             font-weight: 700;
-            font-size: 1.05rem;
-            transition: 0.3s all;
+            transition: 0.3s;
         }
 
-        .link-item i { font-size: 1.5rem; margin-left: 18px; width: 30px; text-align: center; }
-        .link-item span { flex-grow: 1; text-align: right; }
+        .link-item i { font-size: 1.7rem; margin-left: 18px; width: 35px; text-align: center; }
+        .link-item span { flex-grow: 1; text-align: right; font-size: 1.05rem; }
 
-        /* جوڵەی لۆگۆکانی ناو دوگمە */
-        @keyframes mini-shake { 0%, 100% {transform: rotate(0);} 25% {transform: rotate(10deg);} 75% {transform: rotate(-10deg);} }
-        .fa-whatsapp { animation: mini-shake 2s infinite; color: #25D366; }
-        .fa-viber { animation: mini-shake 2.5s infinite; color: #7360f2; }
-        .fa-snapchat-ghost { animation: mini-shake 1.5s infinite; color: #FFFC00; }
-        .fa-instagram { animation: mini-shake 2.2s infinite; color: #fd1d1d; }
-        .fa-phone-alt { animation: mini-shake 1.2s infinite; color: #4facfe; }
+        /* لێدانی جوڵە بۆ ئایکۆنەکان */
+        .fa-whatsapp { animation: shake 2s infinite ease-in-out; color: #25D366; }
+        .fa-viber { animation: float 3s infinite ease-in-out; color: #7360f2; }
+        .fa-snapchat-ghost { animation: pulse 1.5s infinite ease-in-out; color: #FFFC00; }
+        .fa-instagram { animation: spin 4s infinite linear; color: #E1306C; }
+        .fa-phone-alt { animation: shake 1s infinite linear; color: #00d2ff; }
 
-        /* فوتەر ڕێک وەک وێنەکە */
-        .footer-section {
-            margin-top: 15px;
+        .footer {
             padding-top: 20px;
             border-top: 1px solid rgba(255, 255, 255, 0.05);
         }
 
-        .powered-by { font-size: 0.75rem; color: #666; text-transform: uppercase; }
-        .footer-brand { font-size: 1.4rem; font-weight: 800; color: #fff; margin-top: 5px; }
-        .footer-slogan { font-size: 0.85rem; color: #888; margin-top: 5px; }
+        /* بەستنەوەی فوتەر بە واتسئەپ */
+        .footer-link {
+            text-decoration: none;
+            color: inherit;
+            display: inline-block;
+        }
+        
+        .footer-link:active { transform: scale(0.95); }
+
+        .footer-brand { 
+            font-size: 1.5rem; 
+            font-weight: 800; 
+            color: #fff; 
+            margin-bottom: 5px;
+            text-shadow: 0 0 10px rgba(0, 210, 255, 0.4);
+        }
+        
+        .footer-slogan { font-size: 0.9rem; color: #666; line-height: 1.5; }
     </style>
 </head>
 <body>
 
     <div class="main-wrapper">
-        <div class="top-brand-small">Kurd Agency</div>
-
-        <div class="header">
-            <div class="call-icon-main"><i class="fas fa-phone-volume"></i></div>
+        <div class="top-content">
+            <div class="agency-logo-text">KURD AGENCY</div>
+            <div class="sub-text">EXPERT SPONSOR</div>
             <p class="instruction">ڕێگایەکی پەیوەندی کردن هەڵبژێرە</p>
-            <div class="scroll-icon"><i class="fas fa-chevron-down"></i></div>
         </div>
 
         <div class="links-list">
             <a href="https://wa.me/9647729585559" class="link-item" onclick="ttq.track('Purchase');">
                 <i class="fab fa-whatsapp"></i> <span>واتسئەپ</span>
             </a>
+
             <a href="viber://contact?number=9647729585559" class="link-item" onclick="ttq.track('Purchase');">
                 <i class="fab fa-viber"></i> <span>ڤایبەر</span>
             </a>
+
             <a href="https://snapchat.com/t/GduU5kjf" class="link-item" onclick="ttq.track('Purchase');">
                 <i class="fab fa-snapchat-ghost"></i> <span>سناپچات</span>
             </a>
+
             <a href="https://instagram.com/kurdagency" class="link-item" onclick="ttq.track('Purchase');">
                 <i class="fab fa-instagram"></i> <span>ئینستاگرام</span>
             </a>
+
             <a href="tel:07729585559" class="link-item" onclick="ttq.track('Purchase');">
                 <i class="fas fa-phone-alt"></i> <span>پەیوەندی تەلەفۆنی</span>
             </a>
         </div>
 
-        <div class="footer-section">
-            <p class="powered-by">سپۆنسەر کراوە لە لایەن</p>
-            <div class="footer-brand">KURD AGENCY</div>
+        <div class="footer">
+            <p style="font-size: 0.7rem; color: #444; letter-spacing: 2px; margin-bottom: 5px;">سپۆنسەر کراوە لە لایەن</p>
+            <a href="https://wa.me/9647729585559" class="footer-link" onclick="ttq.track('Purchase');">
+                <div class="footer-brand">KURD AGENCY</div>
+            </a>
             <p class="footer-slogan">گەورەکردنی کارەکەت ئاسانە</p>
         </div>
     </div>
