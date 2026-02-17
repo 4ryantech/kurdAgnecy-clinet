@@ -20,105 +20,115 @@
     <style>
         * { box-sizing: border-box; margin: 0; padding: 0; -webkit-tap-highlight-color: transparent; }
         
-        html, body { 
-            height: 100%; 
-            overflow: hidden; 
-        }
+        html, body { height: 100%; overflow: hidden; }
 
         body { 
             background-color: #000;
-            background-image: 
-                radial-gradient(circle at 50% 20%, #112233, transparent),
-                radial-gradient(circle at 0% 100%, #050a0f, transparent);
+            background-image: radial-gradient(circle at 50% 20%, #112233, transparent), radial-gradient(circle at 0% 100%, #050a0f, transparent);
             font-family: 'Segoe UI', system-ui, sans-serif;
             display: flex; justify-content: center; align-items: center; 
-            color: #fff; padding: 15px;
+            color: #fff; padding: 10px;
         }
 
         .main-wrapper {
             width: 100%; max-width: 400px;
-            height: 92vh; 
+            height: 94vh; 
             display: flex; flex-direction: column;
             justify-content: space-between;
             background: rgba(255, 255, 255, 0.02);
             border: 1px solid rgba(255, 255, 255, 0.08);
-            border-radius: 50px;
-            padding: 40px 20px;
+            border-radius: 40px;
+            padding: 25px 20px;
             text-align: center;
             backdrop-filter: blur(25px);
-            box-shadow: 0 30px 60px rgba(0,0,0,0.6);
+            position: relative;
         }
 
-        .agency-logo-text {
-            font-size: 2.8rem;
-            font-weight: 900;
-            background: linear-gradient(to bottom, #fff, #00d2ff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            filter: drop-shadow(0 0 10px rgba(0, 210, 255, 0.3));
+        /* هێمای پەیوەندی بچووک لە سوچی سەرەوە */
+        .corner-call-icon {
+            position: absolute;
+            top: 25px;
+            right: 25px;
+            font-size: 1.2rem;
+            color: #00d2ff;
+            animation: ring 1.5s infinite ease-in-out;
         }
 
-        .sub-text {
-            color: #00d2ff; font-size: 0.8rem; font-weight: 700; letter-spacing: 5px; margin-bottom: 20px;
+        @keyframes ring {
+            0%, 100% { transform: rotate(0) scale(1); }
+            10%, 30% { transform: rotate(15deg) scale(1.1); }
+            20%, 40% { transform: rotate(-15deg) scale(1.1); }
         }
 
-        .instruction { color: #aaa; margin-bottom: 15px; font-size: 1rem; }
+        /* Kurd Agency بچووک لە سەرەوە */
+        .top-brand {
+            font-size: 0.9rem;
+            font-weight: 800;
+            color: #fff;
+            letter-spacing: 2px;
+            opacity: 0.7;
+            margin-top: 5px;
+            text-transform: uppercase;
+        }
 
-        /* Animations */
+        .instruction-text {
+            font-size: 1.1rem;
+            font-weight: 600;
+            color: #eee;
+            margin-top: 40px;
+            line-height: 1.4;
+        }
+
+        /*Animations بۆ دوگمەکان */
         @keyframes shake { 0%, 100% {transform: rotate(0);} 25% {transform: rotate(10deg);} 75% {transform: rotate(-10deg);} }
-        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.15);} 100% {transform: scale(1);} }
-        @keyframes float { 0%, 100% {transform: translateY(0);} 50% {transform: translateY(-5px);} }
+        @keyframes pulse { 0% {transform: scale(1);} 50% {transform: scale(1.1);} 100% {transform: scale(1);} }
 
-        .links-list { display: flex; flex-direction: column; gap: 12px; }
+        .links-list { display: flex; flex-direction: column; gap: 10px; margin-top: 10px; }
 
         .link-item {
             display: flex; align-items: center;
-            padding: 16px 25px;
+            padding: 15px 20px;
             background: rgba(255, 255, 255, 0.04);
             border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 22px;
+            border-radius: 20px;
             text-decoration: none;
             color: #fff; font-weight: 700; transition: 0.3s;
         }
 
-        .link-item i { font-size: 1.7rem; margin-left: 18px; width: 35px; text-align: center; }
-        .link-item span { flex-grow: 1; text-align: right; font-size: 1.05rem; }
+        .link-item i { font-size: 1.6rem; margin-left: 15px; width: 30px; text-align: center; }
+        .link-item span { flex-grow: 1; text-align: right; font-size: 1rem; }
 
         .fa-whatsapp { animation: shake 2s infinite ease-in-out; color: #25D366; }
-        .fa-viber { animation: float 3s infinite ease-in-out; color: #7360f2; }
+        .fa-viber { animation: pulse 3s infinite ease-in-out; color: #7360f2; }
         .fa-snapchat-ghost { animation: pulse 1.5s infinite ease-in-out; color: #FFFC00; }
         .fa-instagram { animation: pulse 2s infinite ease-in-out; color: #E1306C; }
         .fa-phone-alt { animation: shake 1s infinite linear; color: #00d2ff; }
 
-        /* باگراوەندی فوتەرەکە */
+        /* فوتەر */
         .footer-box {
             background: linear-gradient(135deg, rgba(0, 210, 255, 0.1), rgba(58, 123, 213, 0.1));
-            border-radius: 30px;
-            padding: 20px 10px;
+            border-radius: 25px;
+            padding: 15px 10px;
             border: 1px solid rgba(255, 255, 255, 0.05);
-            margin-top: 10px;
-            box-shadow: inset 0 0 20px rgba(0, 210, 255, 0.05);
         }
 
         .footer-link { text-decoration: none; color: inherit; display: block; }
-        .footer-link:active { transform: scale(0.96); }
 
         .footer-brand { 
-            font-size: 1.6rem; font-weight: 900; color: #fff; 
+            font-size: 1.5rem; font-weight: 900; color: #fff; 
             text-shadow: 0 0 15px rgba(0, 210, 255, 0.6);
-            letter-spacing: 1px;
         }
         
-        .footer-slogan { font-size: 0.85rem; color: #999; margin-top: 5px; font-weight: 500; }
+        .footer-slogan { font-size: 0.8rem; color: #888; margin-top: 5px; }
     </style>
 </head>
 <body>
 
     <div class="main-wrapper">
-        <div class="top-content">
-            <div class="agency-logo-text">KURD AGENCY</div>
-            <div class="sub-text">EXPERT SPONSOR</div>
-            <p class="instruction">پەیوەندی بکە</p>
+        <div>
+            <div class="corner-call-icon"><i class="fas fa-phone-volume"></i></div>
+            <div class="top-brand">Kurd Agency</div>
+            <p class="instruction-text">پەیوەندی بکە بە ڕێگایەکی پەیوەندی کردن هەڵبژێرە</p>
         </div>
 
         <div class="links-list">
@@ -144,7 +154,7 @@
         </div>
 
         <div class="footer-box">
-            <p style="font-size: 0.65rem; color: #555; letter-spacing: 2px; margin-bottom: 5px; font-weight: bold;">POWERED BY</p>
+            <p style="font-size: 0.6rem; color: #444; letter-spacing: 2px; margin-bottom: 3px;">POWERED BY</p>
             <a href="https://wa.me/9647729585559" class="footer-link" onclick="ttq.track('Purchase');">
                 <div class="footer-brand">KURD AGENCY</div>
             </a>
